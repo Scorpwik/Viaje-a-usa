@@ -1,0 +1,1431 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guía W&T USA 2026 — Joshua Lozada</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0e0f11;
+    --bg2: #161719;
+    --bg3: #1e2023;
+    --border: rgba(255,255,255,0.08);
+    --border2: rgba(255,255,255,0.13);
+    --text: #f0f0ee;
+    --text2: #9a9b99;
+    --text3: #5e5f5d;
+    --accent: #e8c87a;
+    --accent2: #c9a84c;
+    --green: #5dba82;
+    --green-bg: rgba(93,186,130,0.1);
+    --green-border: rgba(93,186,130,0.25);
+    --red: #e5675a;
+    --red-bg: rgba(229,103,90,0.1);
+    --red-border: rgba(229,103,90,0.25);
+    --amber: #e8c87a;
+    --amber-bg: rgba(232,200,122,0.1);
+    --amber-border: rgba(232,200,122,0.25);
+    --blue: #6ab0e8;
+    --blue-bg: rgba(106,176,232,0.1);
+    --blue-border: rgba(106,176,232,0.25);
+    --radius: 14px;
+    --radius-sm: 8px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    font-size: 15px;
+    min-height: 100vh;
+  }
+
+  /* ── SIDEBAR NAV ── */
+  .nav {
+    position: fixed;
+    top: 0; left: 0;
+    width: 220px;
+    height: 100vh;
+    background: var(--bg2);
+    border-right: 1px solid var(--border);
+    padding: 2rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    z-index: 100;
+    overflow-y: auto;
+  }
+
+  .nav-logo {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12.5px;
+    color: var(--text2);
+    text-decoration: none;
+    padding: 6px 10px;
+    border-radius: var(--radius-sm);
+    transition: all 0.15s;
+  }
+
+  .nav a:hover { background: var(--bg3); color: var(--text); }
+  .nav a .icon { font-size: 16px; width: 20px; text-align: center; }
+
+  /* ── MAIN ── */
+  .main {
+    margin-left: 220px;
+    padding: 2.5rem 2.5rem 5rem;
+    width: calc(100% - 220px);
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, #1a1c1f 0%, #1e1d18 100%);
+    border: 1px solid var(--border2);
+    border-radius: var(--radius);
+    padding: 2rem 2.5rem;
+    margin-bottom: 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 250px; height: 250px;
+    background: radial-gradient(circle, rgba(232,200,122,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 1rem; }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 4px 12px;
+    border-radius: 20px;
+  }
+
+  .badge-gold { background: rgba(232,200,122,0.12); color: var(--accent); border: 1px solid rgba(232,200,122,0.25); }
+  .badge-green { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-border); }
+  .badge-amber { background: var(--amber-bg); color: var(--amber); border: 1px solid var(--amber-border); }
+  .badge-red { background: var(--red-bg); color: var(--red); border: 1px solid var(--red-border); }
+  .badge-blue { background: var(--blue-bg); color: var(--blue); border: 1px solid var(--blue-border); }
+
+  .hero h1 { font-size: 26px; font-weight: 600; color: var(--text); margin-bottom: 6px; }
+  .hero p { font-size: 14px; color: var(--text2); }
+
+  /* ── SECTION ── */
+  .section { margin-bottom: 2.5rem; }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text3);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* ── CARD ── */
+  .card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.5rem;
+  }
+
+  .card-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+
+  /* ── GRIDS ── */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+
+  /* ── METRIC ── */
+  .metric {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 1rem 1.25rem;
+  }
+
+  .metric-label {
+    font-size: 11px;
+    color: var(--text3);
+    font-weight: 500;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .metric-value {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--text);
+    font-family: 'DM Mono', monospace;
+  }
+
+  .metric-value span { font-size: 14px; font-weight: 400; color: var(--text2); }
+  .metric-sub { font-size: 11px; color: var(--text2); margin-top: 4px; }
+  .metric-value.green { color: var(--green); }
+  .metric-value.amber { color: var(--amber); }
+
+  /* ── FLIGHT ── */
+  .flight-block { padding: 1rem 0; border-bottom: 1px solid var(--border); }
+  .flight-block:last-child { border-bottom: none; padding-bottom: 0; }
+  .flight-row { display: flex; align-items: center; gap: 12px; }
+
+  .flight-point { min-width: 70px; }
+  .flight-code { font-size: 24px; font-weight: 600; color: var(--text); font-family: 'DM Mono', monospace; }
+  .flight-city { font-size: 11px; color: var(--text2); }
+  .flight-time { font-size: 14px; font-weight: 500; color: var(--accent); margin-bottom: 2px; }
+
+  .flight-middle { flex: 1; text-align: center; }
+  .flight-line-wrap { display: flex; align-items: center; gap: 8px; margin: 4px 0; }
+  .flight-line { flex: 1; height: 1px; background: var(--border2); }
+  .flight-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+  .flight-meta { font-size: 11px; color: var(--text2); }
+  .flight-dur { font-size: 13px; font-weight: 500; color: var(--text); }
+
+  /* ── LAYOVER ── */
+  .layover-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 8px;
+    background: var(--amber-bg);
+    border: 1px solid var(--amber-border);
+    border-radius: var(--radius-sm);
+    margin: 12px 0;
+    font-size: 12px;
+    color: var(--amber);
+    font-weight: 500;
+  }
+
+  /* ── ROW LIST ── */
+  .row-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 9px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+  }
+
+  .row-item:last-child { border-bottom: none; }
+  .row-label { color: var(--text2); display: flex; align-items: center; gap: 6px; }
+  .row-val { font-weight: 600; font-family: 'DM Mono', monospace; color: var(--text); }
+  .row-val.green { color: var(--green); }
+  .row-val.red { color: var(--red); }
+  .row-val.amber { color: var(--amber); }
+
+  /* ── STEPS ── */
+  .step { display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--border); }
+  .step:last-child { border-bottom: none; }
+  .step-num {
+    width: 26px; height: 26px; border-radius: 50%;
+    background: var(--blue-bg);
+    color: var(--blue);
+    font-size: 12px; font-weight: 600;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; margin-top: 2px;
+    border: 1px solid var(--blue-border);
+  }
+
+  .step-num.green { background: var(--green-bg); color: var(--green); border-color: var(--green-border); }
+  .step-num.amber { background: var(--amber-bg); color: var(--amber); border-color: var(--amber-border); }
+  .step-title { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 3px; }
+  .step-desc { font-size: 12px; color: var(--text2); line-height: 1.55; }
+  .step-desc strong { color: var(--text); }
+
+  /* ── ALERT ── */
+  .alert {
+    display: flex;
+    gap: 10px;
+    padding: 12px 14px;
+    border-radius: var(--radius-sm);
+    font-size: 12px;
+    line-height: 1.55;
+    margin-top: 10px;
+  }
+
+  .alert-icon { font-size: 18px; flex-shrink: 0; }
+  .alert strong { display: block; font-size: 13px; margin-bottom: 4px; }
+
+  .alert-red { background: var(--red-bg); border: 1px solid var(--red-border); color: var(--red); }
+  .alert-amber { background: var(--amber-bg); border: 1px solid var(--amber-border); color: var(--amber); }
+  .alert-green { background: var(--green-bg); border: 1px solid var(--green-border); color: var(--green); }
+  .alert-blue { background: var(--blue-bg); border: 1px solid var(--blue-border); color: var(--blue); }
+
+  /* ── TAGS ── */
+  .tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 8px; }
+  .tag {
+    font-size: 11px; padding: 4px 12px;
+    border-radius: 20px;
+    font-weight: 500;
+  }
+
+  .tag-red { background: var(--red-bg); color: var(--red); border: 1px solid var(--red-border); }
+  .tag-green { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-border); }
+  .tag-neutral { background: var(--bg3); color: var(--text2); border: 1px solid var(--border); }
+
+  /* ── BANK CARD ── */
+  .bank-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem;
+  }
+
+  .bank-card.featured { border-color: rgba(106,176,232,0.4); }
+  .bank-bonus { font-size: 26px; font-weight: 700; color: var(--green); font-family: 'DM Mono', monospace; margin: 6px 0 4px; }
+  .bank-name { font-size: 14px; font-weight: 600; color: var(--text); }
+  .bank-note { font-size: 11px; color: var(--text2); line-height: 1.55; }
+
+  /* ── PACK LIST ── */
+  .pack-list { list-style: none; display: flex; flex-direction: column; gap: 2px; margin-top: 8px; }
+  .pack-list li {
+    font-size: 12px; color: var(--text2);
+    padding: 6px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: flex-start; gap: 8px;
+    line-height: 1.5;
+  }
+
+  .pack-list li:last-child { border-bottom: none; }
+  .pack-list li::before { content: '→'; color: var(--accent); flex-shrink: 0; font-weight: 600; }
+
+  /* ── CONTACT ── */
+  .contact-item {
+    display: flex; align-items: center; gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .contact-item:last-child { border-bottom: none; }
+
+  .avatar {
+    width: 36px; height: 36px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 700; flex-shrink: 0;
+  }
+
+  .av-blue { background: var(--blue-bg); color: var(--blue); border: 1px solid var(--blue-border); }
+  .av-green { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-border); }
+  .av-amber { background: var(--amber-bg); color: var(--amber); border: 1px solid var(--amber-border); }
+
+  .contact-name { font-size: 13px; font-weight: 600; color: var(--text); }
+  .contact-role { font-size: 11px; color: var(--text2); }
+  .contact-detail { margin-left: auto; font-size: 11px; color: var(--blue); text-align: right; font-family: 'DM Mono', monospace; }
+
+  /* ── DIVIDER ── */
+  .divider { height: 1px; background: var(--border); margin: 12px 0; }
+
+  /* ── FOOTER ── */
+  .footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 11px;
+    color: var(--text3);
+    border-top: 1px solid var(--border);
+    margin-top: 3rem;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .nav {
+      transform: translateX(-100%);
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      width: 280px;
+      box-shadow: 20px 0 50px rgba(0,0,0,0.5);
+    }
+
+    .nav.active {
+      transform: translateX(0);
+    }
+
+    .main {
+      margin-left: 0;
+      padding: 1.5rem 1rem 4rem;
+      margin-top: 60px; /* Space for mobile header */
+      width: 100%;
+    }
+
+    .grid-2, .grid-3, .grid-4 {
+      grid-template-columns: 1fr;
+    }
+
+    .hero {
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: 22px;
+    }
+
+    .mobile-header {
+      display: flex;
+    }
+
+    .nav-overlay {
+      display: block;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .grid-2, .grid-3, .grid-4 {
+      grid-template-columns: 1fr;
+    }
+    .metric-value {
+      font-size: 20px;
+    }
+    .flight-code {
+      font-size: 20px;
+    }
+    .flight-point {
+      min-width: 60px;
+    }
+  }
+
+  /* ── CHECKLIST ── */
+  .todo-header {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+  .todo-input {
+    flex: 1;
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 8px 12px;
+    color: var(--text);
+    font-size: 13px;
+  }
+  .todo-add-btn {
+    background: var(--accent);
+    color: var(--bg);
+    border: none;
+    padding: 8px 15px;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 13px;
+  }
+  .todo-list {
+    list-style: none;
+  }
+  .todo-item {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    margin-bottom: 8px;
+    transition: all 0.2s;
+    overflow: hidden;
+  }
+  .todo-item:hover {
+    border-color: var(--border2);
+  }
+  .todo-main {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+  }
+  .todo-item input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--green);
+    cursor: pointer;
+  }
+  .todo-text {
+    flex: 1;
+    font-size: 13px;
+    color: var(--text);
+    cursor: pointer;
+  }
+  .todo-item.completed .todo-text {
+    text-decoration: line-through;
+    color: var(--text3);
+  }
+  .todo-btn {
+    background: none;
+    border: none;
+    color: var(--text3);
+    cursor: pointer;
+    padding: 4px;
+    font-size: 14px;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .todo-btn:hover { color: var(--text); }
+  .todo-btn.delete:hover { color: var(--red); }
+  
+  .todo-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    background: rgba(0,0,0,0.15);
+    font-size: 12px;
+    color: var(--text2);
+    padding: 0 14px;
+    line-height: 1.5;
+  }
+  .todo-item.show-details .todo-details {
+    max-height: 200px;
+    padding: 10px 14px 14px 44px;
+    border-top: 1px solid var(--border);
+  }
+  .todo-item.show-details .toggle-icon {
+    transform: rotate(180deg);
+  }
+  .toggle-icon {
+    transition: transform 0.3s;
+    font-size: 10px;
+  }
+
+    .mobile-header {
+      display: flex;
+    }
+
+    .nav-overlay {
+      display: block;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .grid-2, .grid-3, .grid-4 {
+      grid-template-columns: 1fr;
+    }
+    .metric-value {
+      font-size: 20px;
+    }
+    .flight-code {
+      font-size: 20px;
+    }
+    .flight-point {
+      min-width: 60px;
+    }
+  }
+
+  /* ── MOBILE HEADER ── */
+  .mobile-header {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 60px;
+    background: var(--bg2);
+    border-bottom: 1px solid var(--border);
+    align-items: center;
+    padding: 0 1.25rem;
+    z-index: 101;
+    justify-content: space-between;
+  }
+
+  .menu-toggle {
+    background: none;
+    border: none;
+    color: var(--text);
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-sm);
+  }
+
+  .menu-toggle:active {
+    background: var(--bg3);
+  }
+
+  .mobile-logo {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 0.05em;
+  }
+
+  .nav-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(4px);
+    z-index: 99;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+  }
+
+  .nav-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* ── PRINT ── */
+  @media print {
+    .nav { display: none; }
+    .main { margin-left: 0; }
+  }
+
+  /* ── HIGHLIGHT ROW ── */
+  .row-item.total {
+    border-top: 1px solid var(--border2);
+    padding-top: 12px;
+    margin-top: 4px;
+  }
+
+  .row-item.total .row-label { color: var(--text); font-weight: 600; }
+  .row-item.total .row-val { font-size: 18px; }
+
+  .mono { font-family: 'DM Mono', monospace; }
+</style>
+</head>
+<body>
+
+<!-- MOBILE HEADER -->
+<header class="mobile-header">
+  <div class="mobile-logo">✈ W&T USA 2026</div>
+  <button class="menu-toggle" id="menuToggle">☰</button>
+</header>
+
+<div class="nav-overlay" id="navOverlay"></div>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-logo">✈ W&T USA 2026</div>
+  <a href="#pendientes"><span class="icon">✅</span> Pendientes</a>
+  <a href="#vuelo"><span class="icon">🛫</span> Vuelo</a>
+  <a href="#finanzas"><span class="icon">💵</span> Finanzas</a>
+  <a href="#llegada"><span class="icon">🏠</span> Llegada</a>
+  <a href="#segundo-empleo"><span class="icon">⚖️</span> Segundo empleo</a>
+  <a href="#banco"><span class="icon">🏦</span> Banco</a>
+  <a href="#reglas"><span class="icon">📋</span> Reglas</a>
+  <a href="#maleta"><span class="icon">🎒</span> Maleta</a>
+  <a href="#contactos"><span class="icon">📞</span> Contactos</a>
+  <a href="#advertencias"><span class="icon">⚠️</span> Advertencias</a>
+</nav>
+
+<!-- MAIN -->
+<main class="main">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-badges">
+      <span class="badge badge-gold">✈ J-1 Work &amp; Travel</span>
+      <span class="badge badge-green">✓ Oferta firmada · InterExchange</span>
+      <span class="badge badge-amber">📅 Jun 1 – Ago 31 · 2026</span>
+    </div>
+    <h1>Joshua Alexander Lozada</h1>
+    <p>Housekeeping Room Attendant · Kalahari Resorts Texas · Round Rock, TX 78665</p>
+  </div>
+
+  <!-- ══ PENDIENTES ══ -->
+  <div class="section" id="pendientes">
+    <div class="section-label">✅ Lista de pendientes — progreso del viaje</div>
+    <div class="card">
+      <div class="todo-header">
+        <input type="text" class="todo-input" id="todoInput" placeholder="Añadir nuevo pendiente...">
+        <button class="todo-add-btn" id="addTodoBtn">Añadir</button>
+      </div>
+      <div class="todo-list" id="todoList">
+        <!-- Los items se cargan dinámicamente -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ VUELO ══ -->
+  <div class="section" id="vuelo">
+    <div class="section-label">✈️ Itinerario de vuelo — miércoles 27 de mayo 2026</div>
+
+    <div class="card">
+      <!-- Vuelo 1 -->
+      <div class="flight-block">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+          <span class="badge badge-blue">Vuelo 1 de 2 · DL0632</span>
+          <span style="font-size:11px; color:var(--text2);">Boeing 767-300 · On Time</span>
+        </div>
+        <div class="flight-row">
+          <div class="flight-point">
+            <div class="flight-time">12:59 am</div>
+            <div class="flight-code">UIO</div>
+            <div class="flight-city">Quito, Ecuador</div>
+          </div>
+          <div class="flight-middle">
+            <div class="flight-dur">5 h 14 min</div>
+            <div class="flight-line-wrap">
+              <div class="flight-dot"></div>
+              <div class="flight-line"></div>
+              <div class="flight-dot"></div>
+            </div>
+            <div class="flight-meta">Vuelo directo UIO → ATL</div>
+          </div>
+          <div class="flight-point" style="text-align:right;">
+            <div class="flight-time">7:13 am</div>
+            <div class="flight-code">ATL</div>
+            <div class="flight-city">Atlanta, GA · Terminal Internacional</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ESCALA -->
+      <div class="layover-bar">
+        ⏱ Escala en Atlanta: 7 horas 7 minutos — Pasas por Migración + Aduana → cambia a Terminal Doméstica Sur
+      </div>
+
+      <!-- Vuelo 2 -->
+      <div class="flight-block">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+          <span class="badge badge-blue">Vuelo 2 de 2 · DL1397</span>
+          <span style="font-size:11px; color:var(--text2);">Airbus A321 · On Time</span>
+        </div>
+        <div class="flight-row">
+          <div class="flight-point">
+            <div class="flight-time">2:20 pm</div>
+            <div class="flight-code">ATL</div>
+            <div class="flight-city">Atlanta, GA</div>
+          </div>
+          <div class="flight-middle">
+            <div class="flight-dur">2 h 35 min</div>
+            <div class="flight-line-wrap">
+              <div class="flight-dot"></div>
+              <div class="flight-line"></div>
+              <div class="flight-dot"></div>
+            </div>
+            <div class="flight-meta">ATL → AUS · Terminal Sur</div>
+          </div>
+          <div class="flight-point" style="text-align:right;">
+            <div class="flight-time">3:55 pm</div>
+            <div class="flight-code">AUS</div>
+            <div class="flight-city">Austin, Texas</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+      <div style="display:flex; justify-content:space-between; font-size:12px; color:var(--text2);">
+        <span>⏱ Tiempo total de viaje: <strong style="color:var(--text);">14 h 56 min</strong></span>
+        <span>🔙 Regreso a Quito: dom 30 ago · 8:00 am – 6:59 pm</span>
+      </div>
+
+      <div class="alert alert-amber">
+        <span class="alert-icon">⚠️</span>
+        <div><strong>Atención en Atlanta</strong>Con 7 h de escala pasarás por inmigración y recogerás maletas. Confirma con Delta que el equipaje se transfiere automáticamente (interline). Si no, recógelo en ATL y vuelve a facturar en la zona doméstica.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ FINANZAS ══ -->
+  <div class="section" id="finanzas">
+    <div class="section-label">💵 Finanzas — salarios, deducciones y costos de llegada</div>
+
+    <div class="grid-4" style="margin-bottom:14px;">
+      <div class="metric">
+        <div class="metric-label">Salario base</div>
+        <div class="metric-value">$13.50<span>/h</span></div>
+        <div class="metric-sub">→ $14/h posible tras 30 días</div>
+      </div>
+      <div class="metric">
+        <div class="metric-label">Horas prom. / sem.</div>
+        <div class="metric-value amber">32 h</div>
+        <div class="metric-sub">Varía según demanda turística</div>
+      </div>
+      <div class="metric">
+        <div class="metric-label">Bruto estimado / sem.</div>
+        <div class="metric-value green">$432</div>
+        <div class="metric-sub">32 h × $13.50</div>
+      </div>
+      <div class="metric">
+        <div class="metric-label">Overtime (>40 h)</div>
+        <div class="metric-value">$20.25<span>/h</span></div>
+        <div class="metric-sub">Sujeto a disponibilidad</div>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">📊 Desglose semanal estimado</div>
+        <div class="row-item">
+          <span class="row-label">Salario bruto (32 h × $13.50)</span>
+          <span class="row-val green">+$432.00</span>
+        </div>
+        <div class="row-item">
+          <span class="row-label">Housing (deducción de nómina)</span>
+          <span class="row-val red">−$112.00</span>
+        </div>
+        <div class="row-item">
+          <span class="row-label">Impuesto federal estimado (~12%)</span>
+          <span class="row-val red">−≈$38.00</span>
+        </div>
+        <div class="row-item">
+          <span class="row-label">Welcome Kit (solo 1ª semana)</span>
+          <span class="row-val red">−$22.00</span>
+        </div>
+        <div class="row-item total">
+          <span class="row-label">💰 Neto aprox. en mano / sem.</span>
+          <span class="row-val green">≈$260</span>
+        </div>
+        <div class="alert alert-blue">
+          <span class="alert-icon">ℹ️</span>
+          <div>Como J-1 NO pagas FICA (Social Security ni Medicare). Texas tampoco tiene impuesto estatal. Solo pagas impuesto federal. Esto es una ventaja frente a otros visados.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">💸 Efectivo requerido al llegar</div>
+        <div class="row-item">
+          <span class="row-label">Depósito reembolsable (si dejas cuarto limpio)</span>
+          <span class="row-val amber">$250</span>
+        </div>
+        <div class="row-item">
+          <span class="row-label">Fee administrativo (NO reembolsable)</span>
+          <span class="row-val red">$50</span>
+        </div>
+        <div class="row-item">
+          <span class="row-label">Primer período parcial de housing</span>
+          <span class="row-val amber">hasta $224</span>
+        </div>
+        <div class="row-item total">
+          <span class="row-label">🔴 Total máximo al check-in (CASH)</span>
+          <span class="row-val red">$524</span>
+        </div>
+        <div class="alert alert-red">
+          <span class="alert-icon">🚨</span>
+          <div><strong>¡SOLO EFECTIVO en el check-in!</strong>No aceptan tarjeta. Lleva $600–700 USD en total para cubrir depósito + Uber desde aeropuerto (~$40) + comida los primeros días antes de cobrar.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ LLEGADA ══ -->
+  <div class="section" id="llegada">
+    <div class="section-label">🏠 Proceso de llegada — paso a paso</div>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">📍 Al aterrizar en Austin (3:55 pm)</div>
+
+        <div class="step">
+          <div class="step-num">1</div>
+          <div>
+            <div class="step-title">Uber/Lyft desde AUS</div>
+            <div class="step-desc">Destino: <strong>Kenny Fort Housing, 670 Kenney Fort Blvd, Round Rock, TX 78665</strong> — ~30 min, costo estimado $35–50. Es el aeropuerto más cercano.</div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">2</div>
+          <div>
+            <div class="step-title">Check-in en Kenney Fort Housing</div>
+            <div class="step-desc">
+              Horario: <strong>Lun–Sáb 10am–6pm</strong> y <strong>Mar–Sáb 10pm–5am</strong>.<br>
+              Si llegas fuera de horario: ve directo a Kalahari Security para que te den acceso.
+            </div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">3</div>
+          <div>
+            <div class="step-title">Documentos para Housing Check-in</div>
+            <div class="step-desc">Presentar: <strong>VISA J-1 · DS-2019 · Job Offer · Pasaporte</strong><br>Pagar: <strong>$524 en CASH (efectivo)</strong></div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">4</div>
+          <div>
+            <div class="step-title">Cita con HR de Kalahari</div>
+            <div class="step-desc">Housing coordina la cita. Llevar: <strong>VISA · DS-2019 · Job Offer · Social Security (si ya lo tienes)</strong>. Completan el papeleo de contratación.</div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">5</div>
+          <div>
+            <div class="step-title">Onboarding obligatorio</div>
+            <div class="step-desc">Clases antes de empezar a trabajar. Fecha notificada por email. <strong>Debes llegar al housing hasta 3 días antes del 1 de junio.</strong></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">✅ Antes de volar — tareas urgentes</div>
+
+        <div class="step">
+          <div class="step-num green">📧</div>
+          <div>
+            <div class="step-title">Envía tus datos de vuelo AHORA</div>
+            <div class="step-desc">Email: <strong>roundrock_housing@kalahariresorts.com</strong><br>Incluye: número de vuelo, fecha, hora de llegada estimada. Si hay cambios, escribe de inmediato.</div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num green">💻</div>
+          <div>
+            <div class="step-title">Configura el Housing Portal</div>
+            <div class="step-desc"><strong>kalahari.starrezhousing.com</strong><br>Login → HOUSING → Term 2026 → Actualiza foto tipo pasaporte + datos de llegada/salida. Debe hacerse ANTES de llegar.</div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num green">🪪</div>
+          <div>
+            <div class="step-title">Social Security Number (SSN)</div>
+            <div class="step-desc">Si no tienes SSN, lo tramitas al llegar con tu DS-2019 y carta de empleo de Kalahari. Sin SSN no puedes trabajar legalmente. La oficina SSA más cercana está en Austin.</div>
+          </div>
+        </div>
+
+        <div class="alert alert-amber">
+          <span class="alert-icon">🎒</span>
+          <div><strong>En el equipaje de MANO (nunca en maleta):</strong><br>Pasaporte · Visa J-1 · DS-2019 · Job Offer · Carta del sponsor InterExchange · Seguro de viaje · Contacto del housing manager · $600 USD en efectivo</div>
+        </div>
+
+        <div class="alert alert-blue">
+          <span class="alert-icon">🏠</span>
+          <div><strong>Tu dirección en Texas:</strong><br>Kenny Fort Housing · 670 Kenney Fort Blvd · Round Rock, TX 78665<br>Manager: Moana Lute · <span class="mono">MLute@kalahariresorts.com</span> · (512) 582-5848</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SEGUNDO EMPLEO ══ -->
+  <div class="section" id="segundo-empleo">
+    <div class="section-label">⚖️ Segundo empleo con visa J-1 — reglas legales</div>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">✅ Lo que SÍ puedes hacer</div>
+        <div class="step">
+          <div class="step-num green">1</div>
+          <div>
+            <div class="step-title">Sí puedes tener un segundo empleo</div>
+            <div class="step-desc">Pero solo después de llegar a EE.UU. y con <strong>aprobación previa escrita de InterExchange</strong>. El proceso puede tomar pocas horas si el empleador coopera.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num green">2</div>
+          <div>
+            <div class="step-title">El segundo empleador debe ser aprobado</div>
+            <div class="step-desc">Envía los datos del nuevo empleador a InterExchange. Ellos revisan que cumpla los requisitos del programa. <strong>Espera el email de autorización oficial antes de empezar.</strong></div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num green">3</div>
+          <div>
+            <div class="step-title">El DS-2019 solo lista un empleador</div>
+            <div class="step-desc">El Departamento de Estado solo permite un empleador en el documento oficial. El segundo se aprueba por separado ya estando en EE.UU.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🚫 Lo que está terminantemente prohibido</div>
+        <div class="alert alert-red" style="margin-top:0;">
+          <span class="alert-icon">🚨</span>
+          <div>
+            <strong>Consecuencia: expulsión del programa J-1 + posible deportación</strong>
+            <ul style="margin-top:8px; padding-left:16px; line-height:2;">
+              <li>Empezar a trabajar sin aprobación de InterExchange</li>
+              <li>Hacer "shadowing" o entrenamiento sin autorización</li>
+              <li>Trabajar mayormente entre 10pm y 6am</li>
+              <li>Empleos por comisión sin salario mínimo garantizado</li>
+              <li>Empleos con agencias de personal (staffing agencies)</li>
+              <li>Empleos donde seas contratista independiente (formulario 1099)</li>
+              <li>Empleos con exposición a químicos peligrosos</li>
+            </ul>
+          </div>
+        </div>
+        <div class="alert alert-amber">
+          <span class="alert-icon">⚠️</span>
+          <div>Trabajar sin autorización puede comprometer visas futuras a EE.UU. No tomes la palabra del empleador como suficiente — espera siempre el <strong>email oficial de InterExchange</strong>.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ BANCO ══ -->
+  <div class="section" id="banco">
+    <div class="section-label">🏦 Cuenta bancaria — Round Rock / Austin</div>
+
+    <div class="grid-3" style="margin-bottom:14px;">
+      <div class="bank-card featured">
+        <div style="margin-bottom:6px;"><span class="badge badge-blue">⭐ Recomendado para J-1</span></div>
+        <div class="bank-name">Chase College Checking</div>
+        <div class="bank-bonus">$125</div>
+        <div class="bank-note">10 transacciones en 60 días · Sin cuota mensual siendo estudiante · Acepta DS-2019 como documento de estudiante · Sucursal física en Round Rock y Austin · Abre en persona con pasaporte + DS-2019 + dirección del housing.</div>
+      </div>
+      <div class="bank-card">
+        <div class="bank-name">Bank of Texas</div>
+        <div class="bank-bonus">$300</div>
+        <div class="bank-note">Válido hasta 30 jun 2026 · Cuenta Access Checking gratuita · Requiere ID estudiantil + comprobante de matrícula · Verificar elegibilidad J-1 en sucursal antes de abrir.</div>
+      </div>
+      <div class="bank-card">
+        <div class="bank-name">Broadway National Bank</div>
+        <div class="bank-bonus">$300</div>
+        <div class="bank-note">Se puede abrir en línea o en persona · Free Checking disponible · Requiere configurar depósito directo · Verifica requisitos para visa J-1 antes de abrir la cuenta.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">📄 Documentos para abrir la cuenta (lleva todo)</div>
+      <div class="tags">
+        <span class="tag-green">✓ Pasaporte vigente</span>
+        <span class="tag-green">✓ Visa J-1</span>
+        <span class="tag-green">✓ Formulario DS-2019</span>
+        <span class="tag-green">✓ Dirección: 670 Kenney Fort Blvd, Round Rock, TX 78665</span>
+        <span class="tag-neutral">SSN (si ya lo tienes — Chase es el más flexible sin SSN)</span>
+      </div>
+      <div class="alert alert-green" style="margin-top:12px;">
+        <span class="alert-icon">💡</span>
+        <div><strong>Tip importante:</strong> Configura el depósito directo de tu nómina de Kalahari a esta cuenta. Así recibes el reembolso del depósito de housing automáticamente, y los cheques de pago llegan sin demora.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ REGLAS ══ -->
+  <div class="section" id="reglas">
+    <div class="section-label">📋 Reglas del empleador y del housing</div>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">🏠 Reglas del housing — tolerancia cero</div>
+        <div class="tags">
+          <span class="tag-red">🚫 Alcohol prohibido</span>
+          <span class="tag-red">🚫 Drogas (incl. Delta 8, marihuana)</span>
+          <span class="tag-red">🚫 Armas de cualquier tipo</span>
+          <span class="tag-red">🚫 Más de 6 personas por cuarto</span>
+          <span class="tag-red">🚫 Externos después de 11pm</span>
+          <span class="tag-red">🚫 Fiestas sin autorización</span>
+        </div>
+        <div class="divider"></div>
+        <div class="row-item">
+          <span class="row-label">Visitas permitidas</span>
+          <span class="row-val">9am – 11pm</span>
+        </div>
+        <div class="row-item">
+          <span class="row-label">Registro de visitas</span>
+          <span class="row-val">Obligatorio en oficina</span>
+        </div>
+        <div class="row-item">
+          <span class="row-label">Inspecciones</span>
+          <span class="row-val">Semanales + aleatorias</span>
+        </div>
+        <div class="row-item">
+          <span class="row-label">Lavandería</span>
+          <span class="row-val amber">$1 lavar + $1 secar</span>
+        </div>
+        <div class="row-item">
+          <span class="row-label">Check-out final</span>
+          <span class="row-val">11am — cuarto impecable</span>
+        </div>
+        <div class="alert alert-amber">
+          <span class="alert-icon">⚠️</span>
+          <div>Para recuperar el depósito de $250: el cuarto debe estar completamente limpio (baño, refrigerador, sin pertenencias). Avisa al housing con mínimo 7 días de anticipación tu fecha de salida.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">💼 Reglas del trabajo — asistencia y uniforme</div>
+
+        <p style="font-size:12px; color:var(--text2); margin-bottom:10px;">Sistema de puntos de asistencia — máximo 4 puntos en todo el programa:</p>
+
+        <div class="row-item">
+          <span class="row-label">⏰ Llegar tarde (no listo a tiempo)</span>
+          <span class="row-val amber">0.5 punto</span>
+        </div>
+        <div class="row-item">
+          <span class="row-label">📵 Ausencia con aviso (2 h antes)</span>
+          <span class="row-val amber">1 punto</span>
+        </div>
+        <div class="row-item">
+          <span class="row-label">❌ No presentarse sin aviso</span>
+          <span class="row-val red">4 puntos</span>
+        </div>
+        <div class="row-item total">
+          <span class="row-label">🔴 Límite total del programa</span>
+          <span class="row-val red">4 puntos</span>
+        </div>
+
+        <div class="divider"></div>
+        <p style="font-size:12px; color:var(--text2); margin-bottom:8px; font-weight:600;">Uniforme obligatorio:</p>
+        <div class="tags">
+          <span class="tag-green">✓ Pantalón negro (tú lo traes)</span>
+          <span class="tag-green">✓ Zapatos cerrados negros (tú los traes)</span>
+          <span class="tag-neutral">Camisa del uniforme — deducción de nómina</span>
+        </div>
+        <div class="divider"></div>
+        <div class="row-item">
+          <span class="row-label">Días libres — anticipación mínima</span>
+          <span class="row-val">2 semanas</span>
+        </div>
+        <div class="row-item">
+          <span class="row-label">Cambio de turno (swap) con aprobación</span>
+          <span class="row-val green">Permitido</span>
+        </div>
+        <div class="row-item">
+          <span class="row-label">Para subir a $14/h tras 30 días</span>
+          <span class="row-val amber">Buena asistencia + 12 boards en 6h</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ MALETA ══ -->
+  <div class="section" id="maleta">
+    <div class="section-label">🎒 Qué traer de Ecuador vs. qué comprar en Texas</div>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">✈️ TRAE desde Ecuador</div>
+        <p style="font-size:12px; color:var(--text2); margin-bottom:8px;">Equipaje de mano (documentos) + maleta (ropa y artículos difíciles de conseguir)</p>
+        <ul class="pack-list">
+          <li>Pasaporte, Visa J-1, DS-2019, Job Offer, carta del sponsor, seguro de viaje</li>
+          <li>Pantalón negro (2–3 pares) — uniforme obligatorio del trabajo</li>
+          <li>Zapatos negros cerrados (obligatorios) — preferiblemente antideslizantes</li>
+          <li>Ropa casual ligera para 2 semanas (Texas en verano: 35–40°C)</li>
+          <li>Adaptador de voltaje / corriente (EE.UU.: 110V / 60Hz)</li>
+          <li>Cargadores y cables de todos tus dispositivos</li>
+          <li>Medicamentos personales con copia de prescripción en inglés</li>
+          <li>Fotos tamaño pasaporte (4–6 copias) para trámites</li>
+          <li>$600–700 USD en efectivo para los primeros días</li>
+          <li>Bloqueador solar SPF 50+ (más barato que en Texas)</li>
+          <li>Artículos de higiene que ya conoces y te funcionan bien</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🛒 COMPRA en Texas (Walmart / Target / Dollar Tree)</div>
+        <p style="font-size:12px; color:var(--text2); margin-bottom:8px;">El housing tiene cocina completa. Los documentos del housing especifican exactamente estos artículos:</p>
+        <ul class="pack-list">
+          <li>Artículos de limpieza para tu cuarto (obligatorio): escoba, trapeador, limpiadores de baño y piso</li>
+          <li>Ollas y sartenes, lámina de hornear, molde para pizza</li>
+          <li>Utensilios: espátula, cuchara grande, cuchillos, tabla de picar, colador</li>
+          <li>Almacenamiento de comida: bolsas zip-lock y/o contenedores plásticos</li>
+          <li>Botella de agua reutilizable (agua del grifo segura para beber — ahorra dinero)</li>
+          <li>Tokens para lavandería — se compran en la oficina del housing ($1 cada uno)</li>
+          <li>Almohada extra si necesitas (el housing provee linens básicos)</li>
+          <li>Extensión eléctrica / regleta (los cuartos tienen pocos enchufes)</li>
+        </ul>
+        <div class="alert alert-green">
+          <span class="alert-icon">💡</span>
+          <div><strong>Tip de ahorro:</strong> Coordina con tus compañeros de cuarto para compartir costos de ollas y utensilios. Hay Walmart Supercenter a pocos minutos de Kalahari. El transporte al trabajo es a pie (menos de 5 min, hay paso peatonal seguro bajo la carretera).</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ CONTACTOS ══ -->
+  <div class="section" id="contactos">
+    <div class="section-label">📞 Contactos clave</div>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">🏢 Contactos oficiales</div>
+        <div class="contact-item">
+          <div class="avatar av-blue">ML</div>
+          <div>
+            <div class="contact-name">Moana Lute</div>
+            <div class="contact-role">Housing Manager · Round Rock, TX</div>
+          </div>
+          <div class="contact-detail">MLute@kalahariresorts.com<br>(512) 582-5848</div>
+        </div>
+        <div class="contact-item">
+          <div class="avatar av-green">TB</div>
+          <div>
+            <div class="contact-name">Tiffany Boardman</div>
+            <div class="contact-role">Contacto Kalahari-Texas (RRHH)</div>
+          </div>
+          <div class="contact-detail">tboardman@kalahariresorts.com<br>+1 608-254-5180</div>
+        </div>
+        <div class="contact-item">
+          <div class="avatar av-amber">KH</div>
+          <div>
+            <div class="contact-name">Housing general Round Rock</div>
+            <div class="contact-role">Enviar datos de vuelo aquí</div>
+          </div>
+          <div class="contact-detail">roundrock_housing@<br>kalahariresorts.com</div>
+        </div>
+        <div class="contact-item">
+          <div class="avatar av-blue">IX</div>
+          <div>
+            <div class="contact-name">InterExchange (sponsor J-1)</div>
+            <div class="contact-role">Toda consulta sobre el programa</div>
+          </div>
+          <div class="contact-detail">app.interexchange.org</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🚕 Taxis en Round Rock (desde aeropuerto Austin)</div>
+        <div class="contact-item">
+          <div class="avatar av-amber">🚕</div>
+          <div>
+            <div class="contact-name">Express Taxi</div>
+            <div class="contact-role">Round Rock, TX</div>
+          </div>
+          <div class="contact-detail">1-512-591-5759</div>
+        </div>
+        <div class="contact-item">
+          <div class="avatar av-green">🚕</div>
+          <div>
+            <div class="contact-name">Ace Taxi</div>
+            <div class="contact-role">Round Rock, TX</div>
+          </div>
+          <div class="contact-detail">1-515-244-1133</div>
+        </div>
+        <div class="contact-item">
+          <div class="avatar av-blue">🚕</div>
+          <div>
+            <div class="contact-name">A Cheap Ride</div>
+            <div class="contact-role">Solo viajes pre-programados (no desde Austin)</div>
+          </div>
+          <div class="contact-detail">512-310-8000</div>
+        </div>
+        <div class="alert alert-blue" style="margin-top:12px;">
+          <span class="alert-icon">📱</span>
+          <div>Descarga Uber y Lyft antes de salir de Ecuador. Son la opción más fácil desde el aeropuerto de Austin hasta el housing (~$35–50). Necesitarás tarjeta o PayPal configurado.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ ADVERTENCIAS ══ -->
+  <div class="section" id="advertencias">
+    <div class="section-label">⚠️ Advertencias críticas — penalizaciones económicas y legales</div>
+
+    <div class="grid-2">
+      <div class="alert alert-red" style="margin:0; border-radius:var(--radius);">
+        <span class="alert-icon">🚨</span>
+        <div>
+          <strong>Salir antes del 31 de agosto</strong>
+          Se deducirá del depósito de housing el costo del período restante del programa. Además viola tu acuerdo J-1 con InterExchange y puede resultar en terminación del programa y afectar visas futuras a EE.UU.
+        </div>
+      </div>
+      <div class="alert alert-red" style="margin:0; border-radius:var(--radius);">
+        <span class="alert-icon">🚨</span>
+        <div>
+          <strong>No notificar cambios a InterExchange</strong>
+          Cualquier cambio de empleo u housing debe reportarse en máximo 1 semana. No hacerlo puede resultar en terminación automática del programa J-1 y problemas con SEVIS.
+        </div>
+      </div>
+      <div class="alert alert-amber" style="margin:0; border-radius:var(--radius);">
+        <span class="alert-icon">⚠️</span>
+        <div>
+          <strong>No avisar fecha de check-out del housing</strong>
+          Debes avisar con mínimo 7 días de anticipación para detener el cobro semanal de $112. Sin aviso = cobros extra + retraso o pérdida del reembolso del depósito de $250.
+        </div>
+      </div>
+      <div class="alert alert-amber" style="margin:0; border-radius:var(--radius);">
+        <span class="alert-icon">⚠️</span>
+        <div>
+          <strong>Check-in mensual obligatorio en SEVIS</strong>
+          El gobierno de EE.UU. requiere check-ins mensuales en el sistema SEVIS. InterExchange enviará recordatorios. Ignorarlos puede cancelar tu estatus de visa J-1.
+        </div>
+      </div>
+      <div class="alert alert-amber" style="margin:0; border-radius:var(--radius);">
+        <span class="alert-icon">⚠️</span>
+        <div>
+          <strong>Primer cheque puede tardar hasta 2 semanas</strong>
+          El oficio de empleo lo especifica explícitamente. Lleva suficiente efectivo para cubrir comida y gastos personales durante ese período sin ingresos.
+        </div>
+      </div>
+      <div class="alert alert-blue" style="margin:0; border-radius:var(--radius);">
+        <span class="alert-icon">ℹ️</span>
+        <div>
+          <strong>Sube a $14/h a los 30 días — cómo lograrlo</strong>
+          Buena asistencia (cero puntos idealmente) + capacidad de completar 12 "punto boards" en 6 horas. Esto representa $208 adicionales al mes. Vale la pena enfocarse desde el primer día.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    Guía generada con IA · Joshua Alexander Lozada Zurita · Kalahari-Texas 2026 · Programa Work &amp; Travel USA / InterExchange<br>
+    Verifica siempre la información oficial con InterExchange y Kalahari Resorts antes de tomar decisiones.
+  </div>
+
+</main>
+
+<script>
+  const menuToggle = document.getElementById('menuToggle');
+  const nav = document.querySelector('.nav');
+  const navOverlay = document.getElementById('navOverlay');
+  const navLinks = document.querySelectorAll('.nav a');
+
+  function toggleMenu() {
+    nav.classList.toggle('active');
+    navOverlay.classList.toggle('active');
+    document.body.style.overflow = nav.classList.contains('active') ? 'hidden' : '';
+  }
+
+  menuToggle.addEventListener('click', toggleMenu);
+  navOverlay.addEventListener('click', toggleMenu);
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth <= 900) {
+        toggleMenu();
+      }
+    });
+  });
+
+  // ── TODO LOGIC ──
+  const todoList = document.getElementById('todoList');
+  const todoInput = document.getElementById('todoInput');
+  const addTodoBtn = document.getElementById('addTodoBtn');
+  const todoHeader = document.querySelector('.todo-header');
+
+  // Check for Read-Only mode via URL parameter (?view=true)
+  const urlParams = new URLSearchParams(window.location.search);
+  const isViewOnly = urlParams.get('view') === 'true';
+
+  if (isViewOnly) {
+    if (todoHeader) todoHeader.style.display = 'none';
+  }
+
+  let todos = [
+    { id: 'vuelo-datos', text: 'Enviar datos de vuelo a Kalahari Housing', completed: false, details: 'Debes enviar número de vuelo y hora de llegada a roundrock_housing@kalahariresorts.com para que sepan cuándo esperarte.' },
+    { id: 'portal-housing', text: 'Configurar perfil en Portal StarRez Housing', completed: false, details: 'Entra a kalahari.starrezhousing.com, sube tu foto y completa la información de llegada. Es obligatorio para el check-in.' },
+    { id: 'efectivo', text: 'Preparar $600 USD en efectivo (CASH) para llegada', completed: false, details: 'El housing NO acepta tarjetas al llegar. Necesitas el dinero exacto para el depósito ($250) y el primer pago.' },
+    { id: 'docs-mano', text: 'Organizar documentos en equipaje de mano', completed: false, details: 'Lleva siempre contigo el DS-2019 original, pasaporte con visa, y la oferta de trabajo. Nunca los pongas en la maleta que va a bodega.' },
+    { id: 'uber-app', text: 'Instalar y configurar Uber/Lyft', completed: false, details: 'Configura un método de pago válido en EE.UU. (tarjeta de crédito o PayPal) antes de salir de Ecuador.' },
+    { id: 'legal-ssn', text: 'Tramitar el Social Security Number (SSN)', completed: false, details: 'Es el trámite legal más importante. Debes ir a la oficina del SSA en Austin con tu pasaporte, DS-2019 e I-94. Sin SSN no podrás recibir tus cheques de pago legalmente.' },
+    { id: 'legal-sevis', text: 'Realizar Check-in en SEVIS (InterExchange)', completed: false, details: 'Debes validar tu llegada en el portal de InterExchange en las primeras 72 horas. Luego, debes hacer un check-in mensual obligatorio para mantener tu visa J-1 activa.' },
+    { id: 'legal-i9-w4', text: 'Completar formularios I-9 y W-4 con RRHH', completed: false, details: 'El formulario I-9 verifica tu identidad y autorización para trabajar. El W-4 determina cuánto impuesto federal se te descontará. Hazlo en tu cita con HR de Kalahari.' },
+    { id: 'legal-banco', text: 'Abrir cuenta bancaria (Chase/Bank of Texas)', completed: false, details: 'Necesitas una cuenta local para depositar tus cheques y configurar el "Direct Deposit". Lleva tu pasaporte, DS-2019 y dirección del housing.' },
+    { id: 'seguro', text: 'Imprimir certificado de seguro médico', completed: false, details: 'InterExchange te provee un seguro. Imprime la tarjeta y llévala contigo en caso de cualquier emergencia médica.' },
+    { id: 'ropa-trabajo', text: 'Comprar pantalones negros y zapatos cerrados', completed: false, details: 'Son obligatorios para tu primer día de entrenamiento. Los zapatos deben ser cómodos porque estarás mucho tiempo de pie.' }
+  ];
+
+  function loadTodos() {
+    const saved = localStorage.getItem('wt_todos_v2');
+    if (saved) {
+      todos = JSON.parse(saved);
+    }
+    renderTodos();
+  }
+
+  function saveTodos() {
+    localStorage.setItem('wt_todos_v2', JSON.stringify(todos));
+  }
+
+  function renderTodos() {
+    todoList.innerHTML = '';
+    todos.forEach(todo => {
+      const item = document.createElement('div');
+      item.className = `todo-item ${todo.completed ? 'completed' : ''}`;
+      item.innerHTML = `
+        <div class="todo-main">
+          <input type="checkbox" ${todo.completed ? 'checked' : ''} ${isViewOnly ? 'disabled' : ''} onchange="toggleTodo('${todo.id}')">
+          <span class="todo-text" onclick="toggleDetails('${todo.id}')">${todo.text}</span>
+          <button class="todo-btn" onclick="toggleDetails('${todo.id}')">
+            <span class="toggle-icon">▼</span>
+          </button>
+          ${isViewOnly ? '' : `<button class="todo-btn delete" onclick="deleteTodo('${todo.id}')">✕</button>`}
+        </div>
+        <div class="todo-details">${todo.details || 'Sin descripción adicional.'}</div>
+      `;
+      todoList.appendChild(item);
+    });
+  }
+
+  window.toggleTodo = (id) => {
+    if (isViewOnly) return;
+    const todo = todos.find(t => t.id === id);
+    if (todo) {
+      todo.completed = !todo.completed;
+      saveTodos();
+      renderTodos();
+    }
+  };
+
+  window.deleteTodo = (id) => {
+    todos = todos.filter(t => t.id !== id);
+    saveTodos();
+    renderTodos();
+  };
+
+  window.toggleDetails = (id) => {
+    const items = document.querySelectorAll('.todo-item');
+    todos.forEach((t, index) => {
+      if (t.id === id) {
+        items[index].classList.toggle('show-details');
+      }
+    });
+  };
+
+  addTodoBtn.addEventListener('click', () => {
+    const text = todoInput.value.trim();
+    if (text) {
+      const newTodo = {
+        id: Date.now().toString(),
+        text: text,
+        completed: false,
+        details: 'Tarea añadida por el usuario.'
+      };
+      todos.push(newTodo);
+      todoInput.value = '';
+      saveTodos();
+      renderTodos();
+    }
+  });
+
+  todoInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') addTodoBtn.click();
+  });
+
+  loadTodos();
+</script>
+
+</body>
+</html>
