@@ -467,6 +467,15 @@
     margin-bottom: 8px;
     transition: all 0.2s;
     overflow: hidden;
+    cursor: grab;
+  }
+  .todo-item:active {
+    cursor: grabbing;
+  }
+  .todo-item.dragging {
+    opacity: 0.5;
+    border: 1px dashed var(--accent);
+    background: var(--bg2);
   }
   .todo-item:hover {
     border-color: var(--border2);
@@ -1361,9 +1370,22 @@
 
   function renderTodos() {
     todoList.innerHTML = '';
-    todos.forEach(todo => {
+    
+    // Sort: uncompleted first, then completed
+    const sortedTodos = [...todos].sort((a, b) => a.completed - b.completed);
+    
+    sortedTodos.forEach((todo, index) => {
       const item = document.createElement('div');
       item.className = `todo-item ${todo.completed ? 'completed' : ''}`;
+      if (!isViewOnly) {
+        item.draggable = true;
+        item.setAttribute('data-index', index);
+        item.addEventListener('dragstart', handleDragStart);
+        item.addEventListener('dragover', handleDragOver);
+        item.addEventListener('drop', handleDrop);
+        item.addEventListener('dragend', handleDragEnd);
+      }
+      
       item.innerHTML = `
         <div class="todo-main">
           <input type="checkbox" ${todo.completed ? 'checked' : ''} ${isViewOnly ? 'disabled' : ''} onchange="toggleTodo('${todo.id}')">
@@ -1377,6 +1399,42 @@
       `;
       todoList.appendChild(item);
     });
+  }
+
+  // ── DRAG & DROP HANDLERS ──
+  let dragStartIndex;
+
+  function handleDragStart(e) {
+    dragStartIndex = +this.getAttribute('data-index');
+    this.classList.add('dragging');
+    e.dataTransfer.effectAllowed = 'move';
+  }
+
+  function handleDragOver(e) {
+    e.preventDefault();
+    e.dataTransfer.dropEffect = 'move';
+  }
+
+  function handleDrop(e) {
+    e.preventDefault();
+    const dragEndIndex = +this.getAttribute('data-index');
+    
+    // Rearrange in the sorted array
+    const sortedTodos = [...todos].sort((a, b) => a.completed - b.completed);
+    const draggedItem = sortedTodos[dragStartIndex];
+    
+    sortedTodos.splice(dragStartIndex, 1);
+    sortedTodos.splice(dragEndIndex, 0, draggedItem);
+    
+    // Update original todos array to match the new order
+    todos = sortedTodos;
+    
+    saveTodos();
+    renderTodos();
+  }
+
+  function handleDragEnd() {
+    this.classList.remove('dragging');
   }
 
   window.toggleTodo = (id) => {
